@@ -2,6 +2,6 @@
 # encoding: utf-8
 
 __include: ./public/info/default:/
-name: vgh-小鹤音形
+name: vgh-flypy
 version: 1.0.0
 
