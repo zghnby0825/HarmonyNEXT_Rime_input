@@ -1,0 +1,194 @@
+# default settings
+# encoding: utf-8
+
+style:
+  __include: ./../public/style/default:/style
+preset_styles:
+  __include: ./../public/preset_styles/default:/preset_styles
+preset_candidates:
+  __include: ./../public/preset_candidates/default:/preset_candidates
+preset_fonts:
+  __include: ./../public/preset_fonts/default:/preset_fonts
+preset_color_schemes:
+  __include: ./../public/preset_color_schemes/default:/preset_color_schemes
+preset_keys:
+  __include: ./../public/preset_keys/default:/preset_keys
+
+
+# 自定义label主要变化label
+  eisu_toggle_更多_dotSymbols_kb: { label: "更多符", send: Eisu_toggle, select: .symbols }
+  eisu_toggle_clip_board: { type: command, label: "Board", send: Eisu_toggle, select: _clip_board }
+
+# 切回主键盘
+  eisu_toggle_Zh_default: { label: "Zh", send: Eisu_toggle, select: default }
+# 切到英文键盘页
+  eisu_toggle_ABC_english: { label: "En", send: Eisu_toggle, select: english }
+# 切回主键盘(icon)
+  eisu_toggle_Zh_default_icon: { icon: "To_Zh.svg", label: "Zh", send: Eisu_toggle, select: default }
+# 切到英文键盘页(icon)
+  eisu_toggle_ABC_english_icon: { icon: "To_En.svg", label: "En", send: Eisu_toggle, select: english}
+# 切回符号
+  eisu_toggle_符_symbols: {label: "?123", send: Eisu_toggle, select: symbols }
+# 语音（icon）
+  function_common_speech_recognition_icon: { type: command, icon: "yy.svg", label: "语音识别", send: function, command: speech.start, option: "" } 
+# 剪贴板（icon）
+  eisu_toggle_clip_board_icon: { type: command, icon: "jt.svg", label: "剪切板", send: Eisu_toggle, select: _clip_board }
+# 表情（icon）
+  eisu_toggle_emoji_icon: { type: command, icon: "bq.svg", label: "emoji", send: Eisu_toggle, select: .emoji, option: [] }
+
+#自定义按钮
+  send_Fancha: { label: "反查", send: "`" } #小鹤音形反查
+  send_half_slash: { label: "/", send: "/" }
+  send_fanxie: { label: '\', send: '\' }
+  text_Tab_1: { label: "Tab", text: "	" } # 直接输入tab符号
+  send_semicolon_1: { label: ";", send: ";" }
+
+  eisu_toggle_tool: {
+    label: "tool",
+    send: Eisu_toggle,
+    select: _setting_board,
+    option: [
+      function_keyboard_selectAll,
+      function_keyboard_cut,
+      function_keyboard_copy,
+      function_keyboard_paste,
+      function_keyboard_selectAllCut,
+      function_keyboard_selectAllCopy,
+      function_keyboard_clearAll,
+      function_keyboard_rebuildTheme,
+    ]
+  }
+
+#键盘布局
+preset_keyboards:
+  __include: ./../public/preset_keyboards/default:/preset_keyboards
+
+  default:
+    ascii_mode: 0
+    height: 46
+    height_land: 34
+    horizontal_gap: 6
+    vertical_gap: 10
+    vertical_gap_land: 4
+    round_corner: 18
+    key_text_offset_x: 0
+    key_text_offset_y: 4
+    key_press_text_offset_x: 0
+    key_press_text_offset_y: 0
+    key_upper_press_text_offset_x: 0
+    key_upper_press_text_offset_y: 0
+    key_upper_text_offset_x: 0
+    key_upper_text_offset_y: 5
+    key_down_text_offset_x: 0
+    key_down_text_offset_y: -1
+    key_down_press_text_offset_x: 0
+    key_down_press_text_offset_y: 0
+    preview_round_corner: 18
+    long_preview_round_corner: 18
+    long_preview_padding: 0
+    long_preview_margin: 4
+    preview: true
+    shadow: { radius: 0, offsetX: 0, offsetY: 0, color: "#90949C" }
+    menu: { events: [
+      function_common_speech_recognition_icon, # 语音识别
+      eisu_toggle_emoji_icon,  # 表情选择器
+      eisu_toggle_clip_board_icon,      # 打开剪切板
+      eisu_toggle_ABC_english_icon
+      ] }
+    keys:
+    # 1
+    - { click: q, label: "Q", swipe_up: "%", swipe_down: "1", long_click: [ "%", commit_q, commit_Q ] }
+    - { click: w, label: "W", swipe_up: "+", swipe_down: "2", long_click: [ commit_w, "+", commit_W ] }
+    - { click: e, label: "E", swipe_up: "*", swipe_down: "3", long_click: [ commit_e, "*", commit_E ] }
+    - { click: r, label: "R", swipe_up: "&", swipe_down: "4", long_click: [ commit_r, "&", commit_R ] }
+    - { click: t, label: "T", swipe_up: "±", swipe_down: "5", long_click: [ commit_t, "±", commit_T ] }
+    - { click: y, label: "Y", swipe_up: "×", swipe_down: "6", long_click: [ commit_y, "×", commit_Y ] }
+    - { click: u, label: "U", swipe_up: '\', swipe_down: "7", long_click: [ commit_u, '\', commit_U ] }
+    - { click: i, label: "I", swipe_up: "¥", swipe_down: "8", long_click: [ commit_i, "¥", commit_I ] }
+    - { click: o, label: "O", swipe_up: "°", swipe_down: "9", long_click: [ commit_o, "°", commit_O ] }
+    - { click: p, label: "P", swipe_up: "$", swipe_down: "0", long_click: [ commit_p, commit_P, "$" ] }
+    - { width: 5 }
+    #2
+    - { click: a, label: "A", swipe_up: "~", long_click: [ commit_a, commit_fulltilde, commit_A ] }
+    - { click: s, label: "S", swipe_up: "/", long_click: [ commit_s, commit_halfslash, commit_S ] }
+    - { click: d, label: "D", swipe_up: ":", long_click: [ commit_d, commit_fullcolon, commit_D ] }
+    - { click: f, label: "F", swipe_up: ";", long_click: [ commit_f, commit_fullsemicolon, commit_F ] }
+    - { click: g, label: "G", swipe_up: "(", swipe_down: eisu_toggle_tool, long_click: [ commit_g, text_halfbracket_left, commit_G ] }
+    - { click: h, label: "H", swipe_up: ")", long_click: [ commit_h, commit_half_rightparen, commit_H ] }
+    - { click: j, label: "J", swipe_up: "@", long_click: [ commit_j, commit_halfat, commit_J ] }
+    - { click: k, label: "K", swipe_up: '"', long_click: [ commit_k, text_fullquotationmark_left, commit_K ] }
+    - { click: l, label: "L", swipe_up: "'", long_click: [ commit_l, commit_halfquote, commit_L ] }
+    - { width: 5 }
+    #3
+    - { click: shift, width: 15, name: shift }
+    - { click: z, label: "Z", swipe_up: "-", long_click: [ commit_z, commit_halfminus, commit_Z ] }
+    - { click: x, label: "X", swipe_up: "_", long_click: [ commit_x, commit_halfunderline, commit_X ] }
+    - { click: c, label: "C", swipe_up: "#", long_click: [ commit_c, commit_halfpoundsign, commit_C ] }
+    - { click: v, label: "V", swipe_up: "?", long_click: [ commit_v, commit_fullquestionmark, commit_V ] }
+    - { click: b, label: "B", swipe_up: "!", long_click: [ commit_b, commit_fullexclamationpoint, commit_B ] }
+    - { click: n, label: "N", swipe_up: "=", long_click: [ commit_n, "=", commit_N ] }
+    - { click: m, label: "M", swipe_up: "…", long_click: [ commit_m, "…", commit_M ] }
+    - { click: backspace, width: 15, name: backspace, preview: false, swipe_up: function_keyboard_clearAll, swipe_down: function_keyboard_undo}
+    #4
+    - __include: ./themes_data/bottom_func_keys:/bottom_eisu_toggle_symbols_key
+      width: 20
+      name: symbols
+      swipe_up: eisu_toggle_更多_dotSymbols_kb
+      long_click: eisu_toggle_setting
+      preview: false
+    - { click: commit_fullcomma, swipe_up: commit_fulldot, long_click: [ "，", "。", "！", "？", "：", "@", "……", send_Fancha ], preview: false, width: 10 }      
+    - { click: space, swipe_up: eisu_toggle_ABC_english, double_click: "。", width: 40, name: space ,preview: false }
+    - { click: send_semicolon_1, swipe_up: eisu_toggle_clip_board, swipe_up: text_Tab_1, long_click: [ eisu_toggle_common_setting_board, function_rime_switcher ], width: 10, name: slash, preview: false}
+    - { click: return, width: 20, name: return, swipe_up: eisu_toggle_clip_board, composing: confirm, long_click: [function_keyboard_clearAll, function_keyboard_clearLeft, function_keyboard_clearRight, function_keyboard_undo, function_keyboard_redo, next], rect_preview: true, preview: false }
+    width: 10
+
+  english:
+    ascii_mode: 1
+    lock: true
+    name: english_keyboard
+    menu: { events: [
+      function_common_speech_recognition_icon, # 语音识别
+      eisu_toggle_emoji_icon,  # 表情选择器
+      eisu_toggle_clip_board_icon,      # 打开剪切板
+      eisu_toggle_Zh_default_icon
+      ] }    
+    keys:
+    #1
+    - { click: q, swipe_up: "%", long_click: [ Q, "%", q ] }
+    - { click: w, swipe_up: "+", long_click: [ W, "+", w ] }
+    - { click: e, swipe_up: "*", long_click: [ E, "*", e ] }
+    - { click: r, swipe_up: "&", long_click: [ R, "&", r ] }
+    - { click: t, swipe_up: "±", long_click: [ T, "±", t ] }
+    - { click: y, swipe_up: "×", long_click: [ Y, "×", y ] }
+    - { click: u, swipe_up: '\', long_click: [ U, '\', u ] }
+    - { click: i, swipe_up: "¥", long_click: [ I, "¥", I ] }
+    - { click: o, swipe_up: "°", long_click: [ O, "°", o ] }
+    - { click: p, swipe_up: "$", long_click: [ P, "$", p ] }
+    - { width: 5 }
+    #2
+    - { click: a, swipe_up: "~", long_click: [ A, "~", a ] }
+    - { click: s, swipe_up: "/", long_click: [ S, "/", s ] }
+    - { click: d, swipe_up: ":", long_click: [ D, ":", d ] }
+    - { click: f, swipe_up: ";", long_click: [ F, ";", f ] }
+    - { click: g, swipe_up: text_halfbracket_left, long_click: [ "(", G, g ] }
+    - { click: h, swipe_up: ")", long_click: [ H, ")", h ] }
+    - { click: j, swipe_up: "@", long_click: [ J, "@", j ] }
+    - { click: k, swipe_up: commit_halfbackslash, long_click: [ K, '\', k ] }
+    - { click: l, swipe_up: "”", long_click: [ L, "”", l ] }
+    - { width: 5 }
+    #3
+    - { click: shift, width: 15, name: shift }
+    - { click: z, swipe_up: "-", long_click: [ Z, "-", z ] }
+    - { click: x, swipe_up: "_", long_click: [ X, "_", x ] }
+    - { click: c, swipe_up: "#", long_click: [ C, "#", c ] }
+    - { click: v, swipe_up: "?", long_click: [ V, "?", v ] }
+    - { click: b, swipe_up: "!", long_click: [ B, "!", b ] }
+    - { click: n, swipe_up: "=", long_click: [ N, "=", n ] }
+    - { click: m, swipe_up: "…", long_click: [ M, "…", m ] }
+    - { click: backspace, width: 15, name: backspace, swipe_up: function_keyboard_clearLeft, swipe_down: function_keyboard_undo}
+    #4
+    - { click: eisu_toggle_符_symbols,swipe_up: eisu_toggle_更多_dotSymbols_kb, width: 20, name: symbol }
+    - { click: commit_half_comma, swipe_up: send_dot, long_click: [ ",", ".", "!", "?", ":", "@" , "…", send_Fancha ], preview: false, width: 10 }
+    - { click: space, width: 40, swipe_up: eisu_toggle_Zh_default, name: space }
+    - { click: send_semicolon_1, swipe_up: eisu_toggle_clip_board, swipe_up: text_Tab_1, long_click: [ eisu_toggle_common_setting_board, function_rime_switcher ], width: 10, name: slash, preview: false}
+    - { click: return, swipe_up: eisu_toggle_clip_board, width: 20, name: return, composing: confirm, long_click: [function_keyboard_clearAll, function_keyboard_clearLeft, function_keyboard_clearRight, function_keyboard_undo, function_keyboard_redo, next]}

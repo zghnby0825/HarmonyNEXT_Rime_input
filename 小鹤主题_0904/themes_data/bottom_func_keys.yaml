@@ -1,0 +1,5 @@
+bottom_eisu_toggle_symbols_key:
+  click:
+    - { when: normal, send: eisu_toggle_符_symbols }
+    - { when: has_menu, send: text_halfcomma }
+    - { when: composing, send: send_Fancha }
