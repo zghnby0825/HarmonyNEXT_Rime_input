@@ -1,7 +1,0 @@
-# default settings
-# encoding: utf-8
-
-__include: ./public/info/default:/
-name: vgh-flypy
-version: 1.0.0
-
